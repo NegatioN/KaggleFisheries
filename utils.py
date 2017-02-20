@@ -245,3 +245,10 @@ class MixIterator(object):
             n1 = np.concatenate([n[1] for n in nexts])
             return (n0, n1)
 
+def create_rect(bb, color='red'):
+    return plt.Rectangle((bb[2], bb[3]), bb[1], bb[0], color=color, fill=False, lw=3)
+
+def show_bb(bboxes, data, i):
+    bb = bboxes[i]
+    plot(data[i])
+    plt.gca().add_patch(create_rect(bb))
